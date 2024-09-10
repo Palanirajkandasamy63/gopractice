@@ -130,3 +130,283 @@ waitgroup in sync
 add
 wait -->end 
 done -->removes the thred from waiting list 
+
+
+
+
+go learning 
+
+go is faster 
+less memory usage 
+go routines are simpler 
+
+variables which stores values
+var := 20
+var confe int=20
+
+
+datattypes
+int 
+uint
+float complex 
+
+fmt 
+printf -->we can use whenever we need this  like %v we can substirute values and call 
+sprintf(we can store it in a variable and call 
+)
+
+if else
+if initial statement condition{}
+else if condition
+else
+
+length:=getlength(email)
+if lenth<1{
+    fmt.Println("invalid email)
+}
+we can write as below 
+
+if length:= getlength(email); length <1{
+    fmt.Println("invalid email)
+}
+
+
+Functions 
+
+func sub (x int , y int) int{
+    return x-y
+}
+
+function signature -->what the function gets and what output it returns func sub (x int , y int) int
+
+fun add(x,y int ) int {
+    return x+y
+}
+
+fun createUSer(firstname string , lastname string , age int ) can we write it 
+fun createuUSer(firstname lastname String, age int)
+
+f func(func(int,int)int,int)int
+a function named f takes  a function as a arugument and also int as a argument which returns int
+
+go 
+values are passed by value not by reference 
+
+x:=5  --->memory 5 
+x:2----->memory 2 
+y:x----> memory new 2 
+y=1---->memory =1  so x wont be unaffected in memory 
+
+
+func main(){
+    x :=5
+    increment(x)
+    fmt.println(x)
+
+}
+func increment (x int){
+    x++
+}
+
+output is 5 because a new copy of x is create din function so it is unaffected 
+
+
+func main(){
+    x :=5
+    x:= increment(x)
+    fmt.println(x)
+
+}
+func increment (x int){
+    x++
+}
+now the output will be 6 
+
+ignoring a value to be unuse 
+
+func getPoint()(x int , y int )int {
+    return 3 ,4
+}
+to ignore y value 
+
+x ,_ :=getPoint()
+
+
+guard clause 
+early return 
+
+
+struct 
+
+type bike struct{
+    make string 
+    model string 
+    heigt int 
+}
+
+nested struct 
+
+type bike struct{
+    Make string 
+    Model string 
+    Heigt int 
+    Frontwheel wheel
+    Backwheel wheel
+}
+
+type wheel struct{
+    Radius  nt 
+    Material string
+}
+
+anaonyms struct 
+if we are nto using more than one time so we use this 
+
+
+embedded strunc
+
+type car struct {
+    make string 
+    model string 
+}
+
+type truck struct{
+    car 
+    bedsize int 
+}
+
+accessing embedded struct 
+
+lanesTruck :=truck{
+    bedsize:10,
+    car: car{
+        make: "toyato",
+        model:"camary",
+    },
+
+}
+
+fmt.println(lanestruck.make)
+fmt.println(lanes.truck.model)
+
+
+func tests(s sender){
+    fmt.println()
+}
+
+using a method on struct 
+func (r rect ) area() int{
+    return r.width * r .height
+}
+
+
+
+#interfaces 
+
+type shape interface {
+  area() float64
+  perimeter() float64
+}
+
+type rect struct {
+    width, height float64
+}
+func (r rect) area() float64 {
+    return r.width * r.height
+}
+func (r rect) perimeter() float64 {
+    return 2*r.width + 2*r.height
+}
+
+type circle struct {
+    radius float64
+}
+func (c circle) area() float64 {
+    return math.Pi * c.radius * c.radius
+}
+func (c circle) perimeter() float64 {
+    return 2 * math.Pi * c.radius
+}
+
+
+loops 
+
+package main
+
+import "fmt"
+
+func main(){
+	// for i:=0;i<5;i++{
+	// 	fmt.Println(i)
+	// }
+
+   var temp ,sum int 
+
+   for i:=0; i<5;i++{
+	fmt.Scanf("%d\n",&temp)
+	sum=sum+temp
+   }
+   fmt.Printf("%d",sum)
+
+
+   //while loop like for loop 
+   i:=0;
+   for i<5{
+	fmt.Scanf("%d\n",&temp)
+	sum=sum+temp
+	i++
+   }
+   fmt.Printf("%d",sum)
+   }
+
+   to exit infinite loop 
+
+   we can use break
+
+
+   arrays 
+
+   var arr[5]int 
+   it can only store 5 elemets 
+   arr =[5]int{78,56,55,66,52} similar to arr =[...]int{78,56,55,66,52}
+   for i:=0; i<len(arr);i++{
+    fmt.printf("%d: %d \n",i arr[i])
+   }
+
+   for i , n := range arr{
+    fmt.Printf(%d\n", n ,i , n )
+   }
+
+   
+   for i , n := range arr{
+    fmt.Printf(%d\n", n ,i , n )
+   }
+
+
+   slices 
+
+   slies are like dynamic where 
+
+   extracting slices form array 
+
+   daysOfWeek :=[...]string {"sun","mon","tue","wed","thus","fri","sat'"}
+
+
+    weekdays:= daysfweek[1:6]
+    weekdays[2]="wensday"
+    printslice(daysofweek[:])
+    printslice(weekdays)
+
+    func Printslice(slice []string){
+        fmt.Printf("%v",slice)
+    }
+
+
+    var list[]int 
+    list=append(list, 1,2,)
+
+    capacity is additional on ein go 
+
+    func printSlic(slice []int){
+        slice ,len(slice),cap(slice)
+    }
